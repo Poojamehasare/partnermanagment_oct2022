@@ -2,18 +2,12 @@
     "packageDirectories": [
         {
             "path": "force-app",
-            "default": true,
-            "package": "PartnerManagement",
-            "versionName": "Version 1.0",
-            "versionNumber": "1.0.0.NEXT"
+            "default": true           
         }
     ],
     "name": "partnermanagment",
     "namespace": "",
     "sfdcLoginUrl": "https://login.salesforce.com",
-    "sourceApiVersion": "55.0",
-    "packageAliases": {
-        "PartnerManagement": "0Ho5g000000PBNGCA4",
-        "PartnerManagement@1.0.0-1": "04t5g000000qDnIAAU"
-    }
+    "sourceApiVersion": "55.0"
+    
 }

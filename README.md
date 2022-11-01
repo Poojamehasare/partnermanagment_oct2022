@@ -1,12 +1,18 @@
 # 1 - Base project setup
 # Get the project base code from github by clone the below repo
-# Use VS code or git command 
+# Use VS code or git command OR Use unmanaged package 
 git clone https://github.com/ShareAndShine/partnermanagment_oct2022.git
+
+#  Unmanaged package
+https://login.salesforce.com/packaging/installPackage.apexp?p0=04t5g000000qDnIAAU
+
 
 # 2 - Code deployment
 # Deploy base code to your connected org
 # Use SFDX command or VS code command palatte to deploy base code to the org
 sfdx force:source:deploy -u <ReplaceWothOrgAliasName>
+OR 
+sfdx force:source:deploy -p force-app -u PRMOrg
 
 # 3 - Assign Permission set & Load sample Data
 # Use SFDX command
