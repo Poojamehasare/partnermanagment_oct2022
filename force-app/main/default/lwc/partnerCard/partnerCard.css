@@ -8,12 +8,6 @@
   color: inherit;
   }
   
-  img.quote {
-    height: 120px;
-    max-width: initial;
-    pointer-events: none;
-  }
-  
   .title {
     font-weight: bold;
     text-transform: uppercase;
