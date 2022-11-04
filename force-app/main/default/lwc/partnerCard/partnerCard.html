@@ -1,4 +1,22 @@
 <!-- sldsValidatorIgnore -->
 <template>
-    
+    <div>
+        <img src={partnerAccount.userImg} class="slds-align_abosolute-center">
+        
+        <div>
+            
+            <p>
+                {partnerAccount.Name}
+            </p>
+
+            <p>
+                {partnerAccount.Partner_Primary_POC}
+            </p>
+
+            <div>
+                <lightning-badge label={partnerAccount.Partner_Type}></lightning-badge>
+            </div>
+
+        </div>
+    </div>
 </template>
