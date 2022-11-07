@@ -1,8 +1,22 @@
 <template>
-    <lightning-card  title="Partner Search Result">
-       
+    <lightning-card title="Partner Search Result">
 
-        <c-partner-card></c-partner-card>
-     
+        <lightning-layout multiple-rows horizontal-align="center">
+            <template for:each={partnerAccountData} for:item="partner">
+
+                <lightning-layout-item padding="around-small" key={partner.Name}>
+                    <!-- Child Component-->
+                    <!-- Use attributes to refer @api property from child component-->
+                    <!-- and pass the value-->
+                    <c-partner-card partner-account={partner}></c-partner-card>
+                </lightning-layout-item>
+            </template>
+
+        </lightning-layout>
+
+
+
+
+
     </lightning-card>
 </template>

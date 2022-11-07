@@ -5,13 +5,9 @@ import { LightningElement, api, wire } from 'lwc';
 export default class PartnerCard extends LightningElement {
 
     // JS Object
-    partnerAccount = {
-
-        userImg: 'https://randomuser.me/api/portraits/med/men/75.jpg',
-        Name: 'Salesforce Inc',
-        Partner_Primary_POC: 'Kate Willamson',
-        Partner_Type: 'Social Media Channel Partner',
-    };
+    
+    
+    @api partnerAccount; // This will elevate a private property to public property so that it can receive data from outside or the caller
 
 
     partnerBadgeTheme = 'slds-theme_offline';
