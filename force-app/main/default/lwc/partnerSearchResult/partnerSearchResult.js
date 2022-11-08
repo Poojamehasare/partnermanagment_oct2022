@@ -25,7 +25,7 @@ export default class PartnerSearchResult extends LightningElement {
         if(data)
         {
             this.partnerAccounts = data;
-            console.log('this.partnerAccounts::' + JSON.stringify(partnerAccounts));
+            console.log('this.partnerAccounts::' + JSON.stringify(this.partnerAccounts));
         }
         else if(error)
         {

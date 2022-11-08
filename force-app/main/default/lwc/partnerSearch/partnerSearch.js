@@ -2,8 +2,10 @@ import { LightningElement, wire } from "lwc"; // 1. add wire decorator
 
 import  fetchAllPartnerTypes from '@salesforce/apex/PartnerManagementController.getPartnerType' //2. import apex method using salesforce apex package
 
+import { NavigationMixin} from 'lightning/navigation'; // Navigation : step 1
 
-export default class PartnerSearch extends LightningElement {
+
+export default class PartnerSearch extends NavigationMixin(LightningElement) { // Navigation : step 3
     value = 'inProgress';
 
     partnerTypes; // property to hold all partner types retrieved from Database
@@ -58,6 +60,52 @@ export default class PartnerSearch extends LightningElement {
     get cardTitle()
     {
         return 'Learning Data Binding';
+    }
+
+
+    OpenPartnerTypePage(event)
+    {
+        // Navigation : step 2
+        const redirectioninput = {
+            type: 'standard__objectPage',
+            attributes: {
+                actionName: "new",
+                objectApiName: "Partner_Type__c"
+            }
+        };
+
+        this[NavigationMixin.Navigate](redirectioninput);
+
+
+    }
+
+    OpenAccountStdPage()
+    {
+         // Navigation : step 2
+         const redirectioninput = {
+            type: 'standard__objectPage',
+            attributes: {
+                actionName: "new",
+                objectApiName: "Account"
+            }
+        };
+
+        this[NavigationMixin.Navigate](redirectioninput);
+
+    }
+
+    OpenContactStdPage()
+    {
+        // Navigation : step 2
+        const redirectioninput = {
+            type: 'standard__objectPage',
+            attributes: {
+                actionName: "new",
+                objectApiName: "Contact"
+            }
+        };
+
+        this[NavigationMixin.Navigate](redirectioninput);
     }
     
 }

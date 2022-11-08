@@ -1,7 +1,7 @@
 <!-- sldsValidatorIgnore -->
 <template>
-    <div class="slds-align_abosolute-center">
-        <img src={partnerAccount.userImg} class="slds-var-m-around_x-small slds-align_abosolute-center">
+    <div class="slds-align_abosolute-center pointer">
+        <img src={userImg} class="slds-var-m-around_x-small slds-align_abosolute-center">
         
         <div class="slds-var-m-around_x-small">
             
@@ -10,12 +10,12 @@
             </p>
 
             <p class=" slds-align_abosolute-center title">
-                {partnerAccount.Partner_Primary_POC}
+                {partnerAccount.Partner_Primary_POC__r.Name}
             </p>
 
-            <div class="slds-align_abosolute-center">
+            <div>
                 <lightning-badge 
-                label={partnerAccount.Partner_Type} class={partnerBadgeTheme}></lightning-badge>
+                label={partnerAccount.Partner_Type_Lookup__r.Name} class={partnerBadgeTheme}></lightning-badge>
             </div>
 
         </div>
