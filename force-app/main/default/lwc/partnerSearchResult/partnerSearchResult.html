@@ -1,18 +1,29 @@
 <template>
     <lightning-card title="Partner Search Result">
 
-        <lightning-layout multiple-rows horizontal-align="center">
-            <template for:each={partnerAccounts} for:item="partner">
+        <template if:false={IsPartnerAccountsFound}>
+            <div class="slds-align_absolute-center">
+                No Partners Found !!! <a href="#" onclick={OpenNewPartnerAccountPage}> Cick here !!</a> to create one !!
+            </div>
+        </template>
 
-                <lightning-layout-item padding="around-small" key={partner.Name}>
-                    <!-- Child Component-->
-                    <!-- Use attributes to refer @api property from child component-->
-                    <!-- and pass the value-->
-                    <c-partner-card partner-account={partner}></c-partner-card>
-                </lightning-layout-item>
-            </template>
 
-        </lightning-layout>
+        <template if:true={IsPartnerAccountsFound}>
+            <lightning-layout multiple-rows horizontal-align="center">
+                <template for:each={partnerAccounts} for:item="partner">
+    
+                    <lightning-layout-item padding="around-small" key={partner.Name}>
+                        <!-- Child Component-->
+                        <!-- Use attributes to refer @api property from child component-->
+                        <!-- and pass the value-->
+                        <c-partner-card partner-account={partner}></c-partner-card>
+                    </lightning-layout-item>
+                </template>
+    
+            </lightning-layout>
+        </template>
+        
+        
 
 
 

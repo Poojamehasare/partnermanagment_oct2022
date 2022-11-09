@@ -107,5 +107,18 @@ export default class PartnerSearch extends NavigationMixin(LightningElement) { /
 
         this[NavigationMixin.Navigate](redirectioninput);
     }
+
+
+    PartnerChangeHandler(event)
+    {
+        // read channel partner Type Id
+        const selectedPartnerTypeId = event.detail.value; 
+
+        // Send selectedPartnerTypeId to masterContainner parent component using custom events
+        const evt = new CustomEvent('selectedpartnertype', {detail: selectedPartnerTypeId});
+        this.dispatchEvent(evt);
+
+
+    }
     
 }

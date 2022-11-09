@@ -15,7 +15,7 @@
 
                 <div class="slds-var-m-bottom_medium">
                 <lightning-combobox name="progress" label="Status" variant="label-hidden" value={value}
-                    placeholder="Select Partners" options={partnerTypes}></lightning-combobox>
+                    placeholder="Select Partners" options={partnerTypes} onchange={PartnerChangeHandler}></lightning-combobox>
                 </div>
                 <div>
                     <lightning-button-icon icon-name="action:add_relationship" alternative-text="Add New Partner Type"

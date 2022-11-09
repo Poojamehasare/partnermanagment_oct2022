@@ -1,10 +1,10 @@
 <template>
 
     <!-- add partner search child component-->
-    <c-partner-search></c-partner-search>
+    <c-partner-search onselectedpartnertype={partnerSelectHandler}></c-partner-search>
 
     <!-- add partner search result child compponent-->
-    <c-partner-search-result></c-partner-search-result>    
+    <c-partner-search-result selected-partner-type-id={partnerTypeId}></c-partner-search-result>    
 
 </template>
 
