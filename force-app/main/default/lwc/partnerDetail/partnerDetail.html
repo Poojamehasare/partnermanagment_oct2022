@@ -1,4 +1,14 @@
 <!-- sldsValidatorIgnore -->
 <template>
-    
+
+    <template if:true={IsPartnerAccountSelected}>
+        <lightning-card title="Partner Detail">
+            <p>Data from publisher::</p>
+
+            <p>Account Name: {partnerAccountName}</p>
+            
+            <p>Account Id: {partnerAccountId}</p>
+        </lightning-card>
+    </template>
+
 </template>

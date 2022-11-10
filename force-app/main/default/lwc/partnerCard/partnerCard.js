@@ -1,5 +1,10 @@
 import { LightningElement, api, wire } from 'lwc';
 
+ // LMS : Step 1
+import { publish, MessageContext} from 'lightning/messageService';
+
+ // LMS : Step 2 - Import or refer MC being created to carry data to all subscribers
+import PARTNER_CHANNEL from '@salesforce/messageChannel/PartnerAccountDataMessageChannel__c'
 
 
 export default class PartnerCard extends LightningElement {
@@ -12,6 +17,12 @@ export default class PartnerCard extends LightningElement {
 
     partnerBadgeTheme = 'slds-theme_offline';
     userImg; // property to hold user Img
+
+
+    // LMS : Step 3 - This will hold information about the component, page from which data is being published
+    @wire(MessageContext)
+    messageContext;
+
 
     connectedCallback() {
 
@@ -53,6 +64,23 @@ export default class PartnerCard extends LightningElement {
 
                 break;
         }
+    }
+
+    selectedPartnerHandler(event)
+    {
+
+        // LMS : Step 4 - Start adding data into MC and publish
+
+        const msgPublish = {
+
+            name:'Partner Card',
+            selectedpartneraccountId: this.partnerAccount.Id,
+            selectedpartneraccountName: this.partnerAccount.Name
+        };
+
+
+        //publish
+        publish(this.messageContext, PARTNER_CHANNEL,msgPublish);
     }
 
 

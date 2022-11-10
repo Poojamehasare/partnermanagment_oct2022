@@ -18,7 +18,7 @@ export default class PartnerSearchResult extends NavigationMixin(LightningElemen
         Partner_Type: 'Technology Partner',
     };*/
 
-
+ 
     @api selectedPartnerTypeId; 
 
     partnerAccounts; // property to hold all partner accounts retrieved from Database
@@ -29,6 +29,7 @@ export default class PartnerSearchResult extends NavigationMixin(LightningElemen
         if(data)
         {
             this.partnerAccounts = data;
+            
             console.log('this.partnerAccounts::' + JSON.stringify(this.partnerAccounts));
         }
         else if(error)
