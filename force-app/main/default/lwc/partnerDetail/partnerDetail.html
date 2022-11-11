@@ -2,12 +2,61 @@
 <template>
 
     <template if:true={IsPartnerAccountSelected}>
-        <lightning-card title="Partner Detail">
-            <p>Data from publisher::</p>
+        <lightning-card title={cardTitle} icon-name="utility:adjust_value">
+            <p>Data from publisher::</p>       
 
-            <p>Account Name: {partnerAccountName}</p>
-            
             <p>Account Id: {partnerAccountId}</p>
+
+            <div slot="actions">
+                <lightning-button variant="success" label="Add Partner Review" title="Add Partner Review" 
+                onclick={redirectToPartnerReviewFlow} class="slds-m-left_x-small"></lightning-button>
+
+                <lightning-button variant="success" label="Show Partner POC Location" title="Show Partner POC Location" 
+                onclick={showPartnerPOCLocation} class="slds-m-left_x-small"></lightning-button>
+
+
+
+            </div>
+
+            <div class="slds-box">
+
+                <lightning-record-view-form object-api-name={objectApiName} 
+                record-id={partnerAccountId}>
+                
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-output-field field-name={partnerPipeline}> </lightning-output-field>
+                            <lightning-output-field field-name={partnerBudget}> </lightning-output-field>
+                            <lightning-output-field field-name={partnerContractStartDate}> </lightning-output-field>
+                            <lightning-output-field field-name={partnerContractEndDate}> </lightning-output-field>
+
+                        </div>
+
+                        <div class="slds-col slds-size_1-of-2">
+
+                            <lightning-output-field field-name={partner_account}> </lightning-output-field>
+                            <lightning-output-field field-name={partner_primaryPOC}> </lightning-output-field>
+                            <lightning-output-field field-name={partner_TrainnedParticipants}> </lightning-output-field>
+                            <lightning-output-field field-name={partner_lat}> </lightning-output-field>
+                            
+                        </div>
+
+
+                    </div>
+                
+                   
+    
+    
+                   
+    
+                </lightning-record-view-form>
+    
+
+                
+            </div>
+
+            
+
         </lightning-card>
     </template>
 
