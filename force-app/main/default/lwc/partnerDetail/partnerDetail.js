@@ -113,8 +113,6 @@ export default class PartnerDetail extends NavigationMixin(LightningElement) {
        }
 
 
-
-
        get IsPartnerAccountSelected()
        {
         if(this.partnerAccountId !=null && this.partnerAccountId.length >0)
