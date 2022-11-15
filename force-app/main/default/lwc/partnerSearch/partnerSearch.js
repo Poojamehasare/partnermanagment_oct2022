@@ -4,26 +4,40 @@ import  fetchAllPartnerTypes from '@salesforce/apex/PartnerManagementController.
 
 import { NavigationMixin} from 'lightning/navigation'; // Navigation : step 1
 
+import { refreshApex } from '@salesforce/apex'; 
 
 export default class PartnerSearch extends NavigationMixin(LightningElement) { // Navigation : step 3
     value = 'inProgress';
 
+
+    // cache burst
+    dataReceived;
+    dataToRefresh;
+
+
     partnerTypes; // property to hold all partner types retrieved from Database
     // 3. use @wire and make a call to APEX method from LWC
     @wire(fetchAllPartnerTypes)
-    processOutput({data,error})
+    //processOutput({data,error})
+    processOutput(result)
     {
-        if(data)
+        if(result.data)
         {
+
+                
+            this.dataReceived = result.data; // copy of data
+            this.dataToRefresh = result; // copy of entire object containing data and error
+
+            refreshApex(this.dataToRefresh); // Keep checking for new changes, if there are any, burst the cache and make a call to DB and bring data
             
             // read the data and bind  to combo box
-            console.log('Partner Types from DB::' + JSON.stringify(data));
+            console.log('Partner Types from DB::' + JSON.stringify(result.data));
             
             //this.partnerTypes = data;
             this.partnerTypes = [{label: '-- Select Partners --', value: ''}];
 
            // loop thru each item in the data array and change the key
-            data.forEach(item => {
+           result.data.forEach(item => {
                 const partnerType = {}; // empty object
                 partnerType.label = item.Name;
                 partnerType.value = item.Id;
@@ -35,7 +49,7 @@ export default class PartnerSearch extends NavigationMixin(LightningElement) { /
         
         
         }    
-        else if(error)
+        else if(result.error)
         {
             console.log('Error:' + error.body.message);
         }
