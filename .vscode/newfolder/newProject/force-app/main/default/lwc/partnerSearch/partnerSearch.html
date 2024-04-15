@@ -1,0 +1,51 @@
+<!-- sldsValidatorIgnore -->
+<template>
+
+
+    <lightning-card>
+        <lightning-layout horizontal-align="center">
+            <lightning-layout-item padding="around-small">
+                <p>Partner Management app helps Sales & Marketing Team to quickly find list of Channel partners having
+                    relationship with the organization. These partners have been vetted by Vendor relationship team.
+                    Sales & Marketing users can also use the app to share feedback about a partner and find other
+                    details like primary point of contact, location, Sale pipeline etc</p>
+
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small">
+
+                <div class="slds-var-m-bottom_medium">
+                    <lightning-combobox name="progress" label="Status" variant="label-hidden" value={value}
+                        placeholder="Select Partners" options={partnerTypes}
+                        onchange={PartnerChangeHandler}></lightning-combobox>
+                </div>
+                <div>
+                    <lightning-button-icon icon-name="action:add_relationship" alternative-text="Add New Partner Type"
+                        title="Add New Partner Type" variant="brand" class="slds-m-left_x-small"
+                        onclick={OpenPartnerTypePage}>
+                    </lightning-button-icon>
+
+                    <lightning-button-icon icon-name="action:new_account" alternative-text="Add New Partner Account"
+                        title="Add New Partner Account" variant="brand" class="slds-m-left_x-small"
+                        onclick={OpenAccountStdPage}>
+                    </lightning-button-icon>
+
+                    <lightning-button-icon icon-name="action:add_contact" alternative-text="Add New Partner Contact"
+                        title="Add New Partner Contact" variant="brand" class="slds-m-left_x-small"
+                        onclick={OpenContactStdPage}>
+                    </lightning-button-icon>
+
+
+                </div>
+
+            </lightning-layout-item>
+
+        </lightning-layout>
+
+
+    </lightning-card>
+
+
+
+
+
+</template>

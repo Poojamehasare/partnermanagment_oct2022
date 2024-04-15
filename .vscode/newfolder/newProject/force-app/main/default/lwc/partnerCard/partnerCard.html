@@ -1,0 +1,26 @@
+<!-- sldsValidatorIgnore -->
+<template>
+   
+    <div class="slds-align_abosolute-center pointer" onclick={selectedPartnerHandler}>
+        <div class={partnerCardStyle}>
+        <img src={userImg} class="slds-var-m-around_x-small slds-align_abosolute-center">
+        
+        <div class="slds-var-m-around_x-small">
+            
+            <p class="slds-align_abosolute-center title">
+                {partnerAccount.Name}
+            </p>
+
+            <p class=" slds-align_abosolute-center title">
+                {partnerAccount.Partner_Primary_POC__r.Name}
+            </p>
+
+            <div>
+                <lightning-badge 
+                label={partnerAccount.Partner_Type_Lookup__r.Name} class={partnerBadgeTheme}></lightning-badge>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+</template>

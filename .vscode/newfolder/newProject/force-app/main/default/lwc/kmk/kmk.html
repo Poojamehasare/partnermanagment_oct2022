@@ -1,0 +1,20 @@
+<template>
+    <!-- Display statements -->
+    <template if:true={statements}>
+        <ul>
+            <template for:each={statements} for:item="statement">
+                <li key={statement.Id}>{statement.Name}</li>
+                <!-- Add other fields you want to display -->
+            </template>
+        </ul>
+    </template>
+
+    <!-- Payment section -->
+    <template if:true={showPaymentSection}>
+        <!-- Include your payment form or any other component here -->
+        <c-payment-form></c-payment-form>
+    </template>
+
+    <!-- Payment button -->
+    <lightning-button label="Make Payment" onclick={handlePaymentClick}></lightning-button>
+</template>

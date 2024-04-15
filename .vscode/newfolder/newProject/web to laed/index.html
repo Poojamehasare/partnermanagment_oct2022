@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web To Lead Form</title> 
+    <link rel="stylesheet" href="style.css"/>
+    <script src="script.js"></script>
+</head>
+<h1>Create Lead</h1>
+<body>
+
+    
+    <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DGC000003s7tU" 
+    method="POST" onsubmit="beforesubmit()">
+    
+    <input type=hidden name="oid" value="00DGC000003s7tU">
+    <input type=hidden name="retURL" value="http://127.0.0.1:5500/index.html/thanks.html">
+    <input type=hidden name="Lead_Date__c" class="outputdate">
+    
+    
+    <label for="first_name">First Name</label>
+    <input  id="first_name" maxlength="40" name="first_name" size="20" type="text" required = "true" /><br>
+    
+    <label for="last_name">Last Name</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" required = "true" /><br>
+    
+    <label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" required = "true" /><br>
+    
+    <label for="city">City</label><input  id="city" maxlength="40" name="city" size="20" type="text" required = "true" /><br>
+    
+    <label for="state">State/Province</label><input  id="state" maxlength="20" name="state" size="20" type="text"required = "true" /><br>
+
+    <label for="lead_date">Lead Date</label><input type="date" class="inputdate" /><br>
+    
+
+    
+   <!-- Lead Date:<span class="dateInput dateOnlyInput"><input  id="00NGC00000ZzGua" name="00NGC00000ZzGua" size="12" type="text" /></span><br>-->
+    
+    <input type="submit" name="submit" class="submit">
+    
+    </form>
+    
+</body>
+</html>

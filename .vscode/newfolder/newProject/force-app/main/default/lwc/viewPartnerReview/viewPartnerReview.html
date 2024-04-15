@@ -1,0 +1,69 @@
+<!-- sldsValidatorIgnore -->
+<template>
+
+    <template if:true={IsPartnerAccountSelected}>
+        <lightning-card title="Sales Team Reviews">
+            <template if:true={IsReviewsFound}>
+
+
+               <lightning-layout multiple-rows>
+                <lightning-layout-item padding="around-small" size="12" small-device-size="12"
+                        large-device-size="12" medium-device-size="12">
+
+                        <!-- With an avatar -->
+                        <div class="slds-var-p-around_medium lgc-bg">
+                            <lightning-tile label={partner.CreatedBy.Name} href="/bruce.html" type="media">
+                                <lightning-avatar slot="media"
+                                    src="https://www.lightningdesignsystem.com/assets/images/avatar1.jpg"
+                                    fallback-icon-name="standard:person_account" alternative-text="Sales User">
+                                </lightning-avatar>
+                                <ul class="slds-list_vertical-space-medium slds-has-inline-block-links_space">
+                                    <li class="slds-item"><span style=" font-weight: bold;">Partner Business Quality :
+                                        </span>
+                                        {partner.Partner_Business_Planning__c}</li>
+                                    <li class="slds-item"><span style=" font-weight: bold;">
+                                            Partner Business Rating : </span>{partner.Partner_Quality__c}</li>
+                                    <li class="slds-item"><span style=" font-weight: bold;">
+                                            OverAll Rating : </span>{partner.Overall_rating__c}</li>
+
+                                </ul>
+
+                                <ul
+                                    class="slds-list_vertical-space-medium slds-has-inline-block-links_space slds-align_absolute-center">
+                                    <li class="slds-item ">{partner.Overall_Feedback__c}
+                                    </li>
+                                </ul>
+                            </lightning-tile>
+                        </div>
+
+                    </lightning-layout-item>
+
+                    <lightning-layout-item padding="around-small" size="12" small-device-size="12"
+                        large-device-size="12" medium-device-size="12">
+                        <div class="slds-p-around_medium lgc-bg-inverse slds-align_absolute-center">
+                            <lightning-button-icon icon-name="utility:arrow_left" alternative-text="Previous Preview"
+                                title="Previous Review" onclick={navigatepreviousReview} variant="border-inverse">
+                            </lightning-button-icon>
+                            <lightning-button-icon icon-name="utility:arrow_right" alternative-text="Next Preview"
+                                title="Next Preview" onclick={navigateNextReview} variant="border-inverse"
+                                class="slds-m-left_xx-small"></lightning-button-icon>
+                        </div>
+                    </lightning-layout-item>
+
+               </lightning-layout>
+
+
+
+            </template>
+
+            <template if:false={IsReviewsFound}>
+                <p>Be the first one to write a review !!.
+                    Please <a onclick={navigateToAddReviewFlow} href="#"> cick here</a></p>
+            </template>
+
+        </lightning-card>
+
+
+    </template>
+
+</template>
